@@ -18,22 +18,22 @@ const EnterYourDetails = () => (
   <Section title="Enter your details">
     <Layout>
       <Item>
-        <Input label="NAME" />
+        <Input required label="NAME" />
       </Item>
       <Item>
-        <Input label="EMAIL" />
+        <Input required label="EMAIL" />
       </Item>
       <Item>
-        <Input label="CONFIRM" />
+        <Input required label="CONFIRM EMAIL" />
       </Item>
       <Item>
-        <Input label="ADDRESS" />
+        <Input required label="ADDRESS" />
       </Item>
       <Item>
-        <Input label="POSTCODE" />
+        <Input required label="POSTCODE" />
       </Item>
       <Item>
-        <Input label="CONTACT NUMBER" />
+        <Input required label="CONTACT NUMBER" />
       </Item>
     </Layout>
   </Section>

@@ -18,24 +18,39 @@ const StyledInput = styled.input`
   background: #fff;
   border-radius: 2px;
   border: 1px solid #d7d7e7;
-  font-size: 18px;
+  font-size: 15px;
   outline: none;
+  padding: 10px 15px;
   color: rgba(0,0,0,0.8);
 `;
 
+const Required = styled.span`
+  color: red;
+  font-weight: 700;
+  margin-left: 0.25rem; 
+`;
 
 const Input = ({
-  label
+  label,
+  required
 }) => (
   <Layout>
-    <Label>{label}</Label>
+    <Label>
+      {label}
+      {required && (<Required>*</Required>)}
+    </Label>
     <br />
     <StyledInput />
   </Layout>
 );
 
+Input.defaultProps = {
+  required: false,
+};
+
 Input.propTypes = {
   label: PropTypes.string.isRequired,
+  required: PropTypes.bool
 
 }
 

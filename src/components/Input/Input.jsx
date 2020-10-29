@@ -27,7 +27,8 @@ const StyledInput = styled.input`
 const Required = styled.span`
   color: red;
   font-weight: 700;
-  margin-left: 0.25rem; 
+  margin-left: 0.25rem;
+  display: inline-block; 
 `;
 
 const Input = ({

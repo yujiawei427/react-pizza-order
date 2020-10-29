@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from './components/Section/';
 import styled from 'styled-components';
+import EnterYourDetails from './components/EnterYourDetails';
 
 const Layout = styled.div`
   padding: 20px 30px;
@@ -26,9 +27,7 @@ const PlaceOrderButton = styled.button`
 function App() {
   return (
     <Layout>
-      <Section title="Enter your details">
-        Details form
-      </Section>
+      <EnterYourDetails />
       <Section title="Choose your pizza">
         <div>
           <h3>Select the size</h3>
@@ -38,7 +37,6 @@ function App() {
           <h3>Pick your toppings</h3>
           <div>Toppings selection</div>
         </div>
-        <h3></h3> 
       </Section>
       <Section title="Order summary">
         Order summary list

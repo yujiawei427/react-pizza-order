@@ -3,6 +3,7 @@ import Section from './components/Section/';
 import styled from 'styled-components';
 import EnterYourDetails from './components/EnterYourDetails';
 import ChooseYourPizza from './components/ChooseYourPizza';
+import Topping from './components/Topping'
 
 const Layout = styled.div`
   padding: 20px 30px;
@@ -30,9 +31,7 @@ function App() {
     <Layout>
       <EnterYourDetails />
       <ChooseYourPizza />
-      <Section title="Order summary">
-        Order summary list
-      </Section>
+      <Topping />
       <PlaceOrderButton>Place your order</PlaceOrderButton>
     </Layout>
   );

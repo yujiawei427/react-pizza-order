@@ -2,7 +2,6 @@ import React from 'react';
 import Section from '../Section';
 import styled from 'styled-components';
 import Size from './Components/Size/Size';
-import pizza from './Components/assets/pizza.svg';
 
 const SubSection = styled.div`
   margin-bottom: 20px;

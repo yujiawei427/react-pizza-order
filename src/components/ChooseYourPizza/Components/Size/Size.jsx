@@ -27,7 +27,8 @@ const Size = ({
 }) => {
   const size = 60 * percentage;
 
-  return (<Layout>
+  return (
+  <Layout>
     <Pizza size={size} src={pizza} alt={name}/>
     <Name>{name}</Name>
   </Layout>);

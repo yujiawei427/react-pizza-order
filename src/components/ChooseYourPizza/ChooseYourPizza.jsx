@@ -33,22 +33,23 @@ const Title = styled.h3`
 
 const SizeLayout = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
 `;
 
 const SizeItem = styled.div`
-  width: calc(100%/3);
-  justify-content: space-between;
+  width: calc(100%/3 - 10px);
   margin: 20px 0;
 `;
 
 const ToppingLayout = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 `;
 
 const ToppingItem = styled.div`
-  width: calc(100%/4);
+  width: calc(100%/4 - 10px);
   margin: 10px 0;
 `;
 
@@ -73,7 +74,7 @@ const ChooseYourPizza = () => (
       <Title>Pick your toppings</Title>
       <ToppingLayout>
         {TOPPINGS.map((topping) => (
-          <ToppingItem>
+          <ToppingItem key={topping}>
             <Topping name={topping}/>
           </ToppingItem>
         ))}

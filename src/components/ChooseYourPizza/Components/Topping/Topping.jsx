@@ -17,16 +17,21 @@ import tomato from './assets/tomato.svg';
 const Layout = styled.div`
   display: flex;
   align-items: center;
+  background: rgba(0,0,0,0.05);
   cursor: pointer;
 `;
 
 const Image = styled.img`
   height: 40px;
   width: 40px;
+  background-color: #e6e6e6;
+  box-sizing: content-box;
 `;
 
 const Name = styled.div`
   padding-left: 15px;
+  font-weight: 250;
+  text-transform: capitalize;
 `;
 
 const TOPPING_IMAGE = {

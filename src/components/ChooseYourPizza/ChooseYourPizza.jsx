@@ -53,43 +53,22 @@ const ToppingItem = styled.div`
   margin: 10px 0;
 `;
 
-const SIZES = [{
-  percentage: 1,
-  name: `Large (13")`
-}, {
-  percentage: 0.85,
-  name: `Medium (11")`
-}, {
-  percentage: 0.7,
-  name: `Small (9")`
-}];
-
 class ChooseYourPizza extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      selectedSize: undefined,
-    };
-  }
-
   render() {
-    const { selectedSize } = this.state;
+    const { selectedSize, onSizeSelected, sizes } = this.props;
 
     return (
       <Section title="Choose your pizza">
         <SubSection>
           <Title>Select the size</Title>
           <SizeLayout>
-            {SIZES.map((size) => (
+            {sizes.map((size) => (
               <SizeItem key={size.name}>
                 <Size 
                   selected={selectedSize === size} 
                   percentage={size.percentage} 
                   name={size.name} 
-                  onSizeSelected={() => this.setState({
-                    selectedSize: size,
-                  })}
+                  onSizeSelected={() => onSizeSelected(size)}
                 />
               </SizeItem>
             ))}

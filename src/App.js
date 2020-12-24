@@ -25,15 +25,55 @@ const PlaceOrderButton = styled.button`
   }
 `;
 
-function App() {
-  return (
-    <Layout>
+const SIZES = [{
+  percentage: 1,
+  name: `Large (13")`
+}, {
+  percentage: 0.85,
+  name: `Medium (11")`
+}, {
+  percentage: 0.7,
+  name: `Small (9")`
+}];
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedSize: undefined,
+    };
+
+    this.handleSizeSelect = this.handleSizeSelect.bind(this);
+  }
+
+  handleSizeSelect(size) {
+    this.setState({
+      selectedSize: size,
+    });
+  }
+
+  render() {
+    const { selectedSize } = this.state;
+
+    return (
+      <Layout>
       <EnterYourDetails />
-      <ChooseYourPizza />
+      <ChooseYourPizza 
+        sizes={SIZES}
+        selectedSize={selectedSize}
+        onSizeSelected={this.handleSizeSelect}
+        // onSizeSelected={(size) => this.setState({
+        //   selectedSize: size,
+        // })}
+      />
       <OrderSummaryList />
       <PlaceOrderButton>Place your order</PlaceOrderButton>
     </Layout>
-  );
+
+    )
+  }
 }
+
 
 export default App;

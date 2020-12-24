@@ -27,13 +27,16 @@ const PlaceOrderButton = styled.button`
 
 const SIZES = [{
   percentage: 1,
-  name: `Large (13")`
+  name: `Large (13")`,
+  price: 13.99,
 }, {
   percentage: 0.85,
-  name: `Medium (11")`
+  name: `Medium (11")`,
+  price: 11.99,
 }, {
   percentage: 0.7,
-  name: `Small (9")`
+  name: `Small (9")`,
+  price: 9.99,
 }];
 
 class App extends React.Component {

@@ -44,7 +44,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      selectedSize: undefined,
+        selectedSize: SIZES[0]
     };
 
     this.handleSizeSelect = this.handleSizeSelect.bind(this);
@@ -70,7 +70,9 @@ class App extends React.Component {
         //   selectedSize: size,
         // })}
       />
-      <OrderSummaryList />
+      <OrderSummaryList 
+        selectedSize={selectedSize}
+      />
       <PlaceOrderButton>Place your order</PlaceOrderButton>
     </Layout>
 

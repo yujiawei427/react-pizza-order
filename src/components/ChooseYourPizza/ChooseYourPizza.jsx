@@ -85,7 +85,7 @@ class ChooseYourPizza extends React.Component {
             ))}
           </ToppingLayout>
         </SubSection>
-  </Section>
+    </Section>
     )
   }
 }

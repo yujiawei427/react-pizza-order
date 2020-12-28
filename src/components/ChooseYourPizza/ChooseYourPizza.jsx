@@ -4,31 +4,7 @@ import styled from 'styled-components';
 import Size from './Components/Size';
 import Topping from './Components/Topping';
 
-const TOPPINGS = [
-  {name: "anchovy",
-  price: 0.9,},
-  {name: "bacon",
-  price: 0.8,},
-  {name: "basil",
-  price: 0.7,},
-  {name: "chili",
-  price: 0.6,},
-  {name: "mozzarella",
-  price: 0.5,},
-  {name: "mushroom",
-  price: 0.4,},
-  {name: "olive",
-  price: 0.3,},
-  {name: "onion",
-  price: 0.2,},
-  {name: "pepper",
-  price: 0.1,},
-  {name: "pepperoni",
-  price: 0.99,},
-  {name: "sweetcorn",
-  price: 0.88,},
-  {name: "tomato",
-  price: 0.77,}]
+
 
 const SubSection = styled.div`
   margin-bottom: 20px;
@@ -65,38 +41,8 @@ const ToppingItem = styled.div`
 `;
 
 class ChooseYourPizza extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      selectedTopping: []
-    };
-
-    this.handleChooseTopping = this.handleChooseTopping.bind(this);
-  }
-
-  handleChooseTopping(topping) {
-    this.setState((prevState) => {
-      const { selectedTopping } = prevState;
-
-      if (selectedTopping.includes(topping)) {
-        return {
-          selectedTopping: selectedTopping.filter((chosenTopping) => chosenTopping !== topping),
-        };
-      }
-
-      return {
-        selectedTopping: [
-          ...selectedTopping,
-          topping,
-        ],
-      };
-    })
-  }
-
   render() {
-    const { selectedSize, onSizeSelected, sizes } = this.props;
-    const { selectedTopping } = this.state;
+    const { selectedSize, onSizeSelected, sizes, selectedTopping, onToppingSelected, toppings } = this.props;
 
     return (
       <Section title="Choose your pizza">
@@ -119,11 +65,11 @@ class ChooseYourPizza extends React.Component {
         <SubSection>
           <Title>Pick your toppings</Title>
           <ToppingLayout>
-            {TOPPINGS.map((topping) => (
+            {toppings.map((topping) => (
               <ToppingItem key={topping.name}>
                 <Topping name={topping.name}
                   selected = {selectedTopping.includes(topping)}
-                  onToppingSelected={() => this.handleChooseTopping(topping)}
+                  onToppingSelected={() => onToppingSelected(topping)}
                   />
               </ToppingItem>
             ))}

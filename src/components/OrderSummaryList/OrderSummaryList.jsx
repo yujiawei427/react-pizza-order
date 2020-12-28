@@ -4,19 +4,13 @@ import Item from './Components';
 
 class OrderSummaryList extends React.Component {
   render() {
-    const { selectedSize } = this.props;
+    const { selectedSize, selectedTopping } = this.props;
   
   return (
     <Section title="Order Summary">
       <Item 
         size={selectedSize}
-        toppings={[{
-          name: 'bacon',
-          price: 0.99,
-        }, {
-          name: 'chill',
-          price: 0.88,
-        }]}
+        toppings={selectedTopping}
       />
   </Section>
   )}

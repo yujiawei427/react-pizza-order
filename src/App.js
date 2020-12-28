@@ -39,15 +39,43 @@ const SIZES = [{
   price: 9.99,
 }];
 
+const TOPPINGS = [
+  {name: "anchovy",
+  price: 0.9,},
+  {name: "bacon",
+  price: 0.8,},
+  {name: "basil",
+  price: 0.7,},
+  {name: "chili",
+  price: 0.6,},
+  {name: "mozzarella",
+  price: 0.5,},
+  {name: "mushroom",
+  price: 0.4,},
+  {name: "olive",
+  price: 0.3,},
+  {name: "onion",
+  price: 0.2,},
+  {name: "pepper",
+  price: 0.1,},
+  {name: "pepperoni",
+  price: 0.99,},
+  {name: "sweetcorn",
+  price: 0.88,},
+  {name: "tomato",
+  price: 0.77,}]
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-        selectedSize: SIZES[0]
+        selectedSize: SIZES[0],
+        selectedTopping: []
     };
 
     this.handleSizeSelect = this.handleSizeSelect.bind(this);
+    this.handleChooseTopping = this.handleChooseTopping.bind(this);
   }
 
   handleSizeSelect(size) {
@@ -56,8 +84,27 @@ class App extends React.Component {
     });
   }
 
+  handleChooseTopping(topping) {
+    this.setState((prevState) => {
+      const { selectedTopping } = prevState;
+
+      if (selectedTopping.includes(topping)) {
+        return {
+          selectedTopping: selectedTopping.filter((chosenTopping) => chosenTopping !== topping),
+        };
+      }
+
+      return {
+        selectedTopping: [
+          ...selectedTopping,
+          topping,
+        ],
+      };
+    })
+  }
+
   render() {
-    const { selectedSize } = this.state;
+    const { selectedSize, selectedTopping } = this.state;
 
     return (
       <Layout>
@@ -66,12 +113,16 @@ class App extends React.Component {
         sizes={SIZES}
         selectedSize={selectedSize}
         onSizeSelected={this.handleSizeSelect}
+        onToppingSelected={this.handleChooseTopping}
+        selectedTopping={selectedTopping}
+        toppings={TOPPINGS}
         // onSizeSelected={(size) => this.setState({
         //   selectedSize: size,
         // })}
       />
       <OrderSummaryList 
         selectedSize={selectedSize}
+        selectedTopping={selectedTopping}
       />
       <PlaceOrderButton>Place your order</PlaceOrderButton>
     </Layout>

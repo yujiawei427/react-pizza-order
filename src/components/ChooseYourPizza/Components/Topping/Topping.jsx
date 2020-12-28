@@ -72,13 +72,12 @@ class Topping extends React.Component {
 
     return (
       <Layout 
-        onClick={() => onToppingSelected()} 
+        onClick={onToppingSelected} 
         selected={selected}>
         <Image src={image} />
         <Name selected={selected}>{name}</Name>
       </Layout>)
-}
-
+  }
 }
 
 Topping.propTypes = {

@@ -6,7 +6,6 @@ class OrderSummaryList extends React.Component {
   render() {
     const { selectedSize } = this.props;
   
-
   return (
     <Section title="Order Summary">
       <Item 

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import anchovy from './assets/anchovy.svg';
 import bacon from './assets/bacon.svg';
 import basil from './assets/basil.svg';
@@ -13,12 +12,25 @@ import pepper from './assets/pepper.svg';
 import pepperoni from './assets/pepperoni.svg';
 import sweetcorn from './assets/sweetcorn.svg';
 import tomato from './assets/tomato.svg';
+import styled, { css } from 'styled-components';
 
 const Layout = styled.div`
   display: flex;
   align-items: center;
   background: rgba(0,0,0,0.05);
   cursor: pointer;
+
+  ${({ selected }) => selected && css` 
+        background-color: #1a98e1;
+  `}
+
+  /* ${(props) => {
+    if (props.selected) {
+      return css` 
+        border-color: #1a98e1;
+      `;
+    };
+  }} */
 `;
 
 const Image = styled.img`
@@ -32,6 +44,10 @@ const Name = styled.div`
   padding-left: 15px;
   font-weight: 250;
   text-transform: capitalize;
+
+  ${({ selected }) => selected && css` 
+        color: white;
+  `}
 `;
 
 const TOPPING_IMAGE = {
@@ -49,17 +65,21 @@ const TOPPING_IMAGE = {
   tomato
 };
 
-const Topping = (
-  {
-    name,
-  }) => {
+class Topping extends React.Component {
+  render () {
+    const {name, selected, onToppingSelected} = this.props;
     const image = TOPPING_IMAGE[name];
+
     return (
-      <Layout>
+      <Layout 
+        onClick={() => onToppingSelected()} 
+        selected={selected}>
         <Image src={image} />
-        <Name>{name}</Name>
-      </Layout>);
-  };
+        <Name selected={selected}>{name}</Name>
+      </Layout>)
+}
+
+}
 
 Topping.propTypes = {
   name: PropTypes.string.isRequired,

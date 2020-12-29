@@ -9,9 +9,14 @@ const Topping = styled.div`
   margin-bottom: 5px;
 `;
 
+const Layout = styled.div`
+  margin-bottom: 20px;
+`;
+
 const Name = styled.div`
   text-transform: capitalize;
 `;
+
 const Size = styled.h3`
   margin-bottom: 10px;
   display: flex;
@@ -28,7 +33,7 @@ const Item = ({
   size,
   toppings,
 }) => (
-  <div>
+  <Layout>
     <Size>
       <Name>{size.name}</Name>
       <div>${size.price}</div>
@@ -43,7 +48,7 @@ const Item = ({
         </li>
       ))}
     </ToppingsUnorderedList>
-  </div>
+  </Layout>
 );
 
 Item.defaultProps = {

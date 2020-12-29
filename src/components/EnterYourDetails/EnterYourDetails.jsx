@@ -11,7 +11,7 @@ const Layout = styled.div`
 
 const Item = styled.div`
   width: calc(100%/3 - 20px);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 const EnterYourDetails = () => (

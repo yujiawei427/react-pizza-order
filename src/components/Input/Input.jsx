@@ -4,13 +4,13 @@ import styled from 'styled-components';
 
 
 const Layout = styled.div`
+  margin-bottom: 15px;
 `;
 
 const Label = styled.label`
   font-size: 12px;
   font-weight: 700;
   color: rgba(0,0,0,0.6);
-  margin-bottom: 10px;
   display: block;
 `;
 
@@ -22,6 +22,7 @@ const StyledInput = styled.input`
   outline: none;
   padding: 10px 15px;
   color: rgba(0,0,0,0.8);
+  margin-top: -10px;
 `;
 
 const Required = styled.span`

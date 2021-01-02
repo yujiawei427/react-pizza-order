@@ -20,8 +20,8 @@ const Section = ({
   children,
 }) => (
   <>
-    <Title>{title}</Title>
-    <Children>{children}</Children>
+    <Title data-testid="title">{title}</Title>
+    <Children data-testid="children">{children}</Children>
   </>
 );
 

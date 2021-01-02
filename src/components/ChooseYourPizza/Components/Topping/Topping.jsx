@@ -71,11 +71,11 @@ class Topping extends React.Component {
     const image = TOPPING_IMAGE[name];
 
     return (
-      <Layout 
+      <Layout data-testid="topping"
         onClick={onToppingSelected} 
         selected={selected}>
         <Image src={image} />
-        <Name selected={selected}>{name}</Name>
+        <Name data-testid="name" selected={selected}>{name}</Name>
       </Layout>)
   }
 }

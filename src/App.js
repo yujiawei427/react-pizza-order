@@ -127,7 +127,7 @@ class App extends React.Component {
       <PlaceOrderButton>Place your order</PlaceOrderButton>
     </Layout>
 
-    )
+    );
   }
 }
 
